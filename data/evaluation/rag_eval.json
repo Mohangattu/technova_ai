@@ -1,0 +1,82 @@
+[
+    {
+        "id": "eval_001",
+        "question": "What is the default production API timeout?",
+        "expected_answer": "Production APIs use a default request timeout of 30 seconds.",
+        "relevant_documents": [
+            "eng_api_001"
+        ]
+    },
+    {
+        "id": "eval_002",
+        "question": "How does TechNova evaluate RAG retrieval?",
+        "expected_answer": "TechNova evaluates retrieval using Recall@K, Precision@K, MRR, and nDCG.",
+        "relevant_documents": [
+            "ai_rag_eval_001"
+        ]
+    },
+    {
+        "id": "eval_003",
+        "question": "What are the requirements for MFA?",
+        "expected_answer": "MFA is required for administrative access and other systems designated as high risk.",
+        "relevant_documents": [
+            "sec_auth_001"
+        ]
+    },
+    {
+        "id": "eval_004",
+        "question": "How should RAG services be deployed?",
+        "expected_answer": "The RAG service should be packaged as a Docker image and run behind the approved production gateway.",
+        "relevant_documents": [
+            "ai_rag_deploy_001"
+        ]
+    },
+    {
+        "id": "eval_005",
+        "question": "What is the annual leave entitlement?",
+        "expected_answer": "Eligible full-time employees receive 24 days of annual leave per calendar year.",
+        "relevant_documents": [
+            "hr_leave_001"
+        ]
+    },
+    {
+        "id": "eval_006",
+        "question": "How should production Kubernetes workloads define resources?",
+        "expected_answer": "Production workloads should define CPU and memory requests and limits based on measured workload characteristics.",
+        "relevant_documents": [
+            "dev_k8s_001"
+        ]
+    },
+    {
+        "id": "eval_007",
+        "question": "What are the requirements for production API communication?",
+        "expected_answer": "Production APIs must use HTTPS and plain HTTP must not be used for authenticated production traffic.",
+        "relevant_documents": [
+            "eng_api_001"
+        ]
+    },
+    {
+        "id": "eval_008",
+        "question": "What is required before production deployment?",
+        "expected_answer": "Production deployment requires a successful build and all required approval gates.",
+        "relevant_documents": [
+            "dev_cicd_001"
+        ]
+    },
+    {
+        "id": "eval_009",
+        "question": "How does TechNova select language models?",
+        "expected_answer": "TechNova considers answer quality, latency, context capacity, reliability, cost, and operational constraints.",
+        "relevant_documents": [
+            "ai_llm_001"
+        ]
+    },
+    {
+        "id": "eval_010",
+        "question": "What should production services expose for deployment infrastructure?",
+        "expected_answer": "Production services should expose liveness and readiness health-check endpoints.",
+        "relevant_documents": [
+            "eng_backend_001"
+        ]
+    }
+]
