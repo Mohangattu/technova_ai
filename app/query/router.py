@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 from groq import Groq
 
-from query_models import QueryRoute
+from app.query.query_models import QueryRoute
 
 
 load_dotenv()
@@ -18,7 +18,10 @@ class QueryRouter:
         max_retries=2,
     ):
         self.client = Groq(
-            api_key=os.getenv("GROQ_API_KEY")
+            api_key=os.getenv("GROQ_API_KEY"),
+            base_url=os.getenv("GROQ_BASE_URL") or None,
+            timeout=30.0,
+            max_retries=0,
         )
 
         self.model_name = model_name

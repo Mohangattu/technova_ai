@@ -11,7 +11,10 @@ class GroundingVerifier:
         model_name="openai/gpt-oss-20b",
     ):
         self.client = Groq(
-            api_key=os.getenv("GROQ_API_KEY")
+            api_key=os.getenv("GROQ_API_KEY"),
+            base_url=os.getenv("GROQ_BASE_URL") or None,
+            timeout=30.0,
+            max_retries=0,
         )
 
         self.model_name = model_name

@@ -1,24 +1,13 @@
-from pathlib import Path
-import sys
+from app.query.query_pipeline import QueryPipeline
 
+from app.retrieval.hybrid import HybridRetriever
+from app.retrieval.reranker import CrossEncoderReranker
+from app.retrieval.parent_expansion import ParentExpander
+from app.retrieval.context_process import ContextProcessor
 
-_APP_DIR = Path(__file__).parent.parent
-
-sys.path.insert(0, str(_APP_DIR))
-sys.path.insert(0, str(_APP_DIR / "query"))
-sys.path.insert(0, str(_APP_DIR / "retrieval"))
-sys.path.insert(0, str(_APP_DIR / "generation"))
-sys.path.insert(0, str(_APP_DIR / "evaluation"))
-from query_pipeline import QueryPipeline
-
-from hybrid import HybridRetriever
-from reranker import CrossEncoderReranker
-from parent_expansion import ParentExpander
-from context_process import ContextProcessor
-
-from generator import RAGGenerator
-from grounded_rag import GroundedRAG
-from grounding_verifier import GroundingVerifier
+from app.generation.generator import RAGGenerator
+from app.evaluation.grounded_rag import GroundedRAG
+from app.evaluation.grounding_verifier import GroundingVerifier
 
 
 class RAGPipeline:

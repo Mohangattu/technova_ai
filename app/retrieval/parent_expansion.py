@@ -1,4 +1,4 @@
-from access_control import AccessController
+from app.retrieval.access_control import AccessController
 
 
 class ParentExpander:

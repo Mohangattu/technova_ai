@@ -1,51 +1,13 @@
-from pathlib import Path
-import sys
-import os
-
-
-# ============================================================
-# WINDOWS UTF-8 OUTPUT
-# ============================================================
-
-if sys.platform == "win32":
-    os.system("chcp 65001 > nul 2>&1")
-
-sys.stdout.reconfigure(
-    encoding="utf-8",
-    errors="replace",
-)
-
-sys.stderr.reconfigure(
-    encoding="utf-8",
-    errors="replace",
-)
-
-
-# ============================================================
-# PATH SETUP
-# ============================================================
-
-_APP_DIR = Path(__file__).parent.parent
-
-sys.path.insert(0, str(_APP_DIR))
-sys.path.insert(0, str(_APP_DIR / "query"))
-sys.path.insert(0, str(_APP_DIR / "retrieval"))
-sys.path.insert(0, str(_APP_DIR / "generation"))
-sys.path.insert(0, str(_APP_DIR / "evaluation"))
-sys.path.insert(0, str(_APP_DIR / "services"))
-sys.path.insert(0, str(_APP_DIR / "ingestion"))
-
-
-from query_pipeline import QueryPipeline
-from rewriter import QueryRewriter
-from hybrid import HybridRetriever
-from reranker import CrossEncoderReranker
-from parent_expansion import ParentExpander
-from context_process import ContextProcessor
-from observability import RAGTracer
-from grounded_rag import GroundedRAG
-from generator import RAGGenerator
-from grounding_verifier import GroundingVerifier
+from app.query.query_pipeline import QueryPipeline
+from app.query.rewriter import QueryRewriter
+from app.retrieval.hybrid import HybridRetriever
+from app.retrieval.reranker import CrossEncoderReranker
+from app.retrieval.parent_expansion import ParentExpander
+from app.retrieval.context_process import ContextProcessor
+from app.services.observability import RAGTracer
+from app.evaluation.grounded_rag import GroundedRAG
+from app.generation.generator import RAGGenerator
+from app.evaluation.grounding_verifier import GroundingVerifier
 
 class RAGNodes:
 
@@ -103,6 +65,7 @@ class RAGNodes:
 
     def query_node(self, state):
         if state.get("trace") is None:
+            self.tracer = RAGTracer()
             self.tracer.start_trace(state["original_query"])
 
         self.tracer.start("query")

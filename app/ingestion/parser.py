@@ -1,7 +1,7 @@
 import re
 from typing import Dict, List
 
-from model import (
+from app.ingestion.model import (
     DocumentMetadata,
     Section,
     TechNovaDocument,

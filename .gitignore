@@ -42,3 +42,9 @@ Thumbs.db
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Local indexes and tooling
+vectorstore/
+.ruff_cache/
+node_modules/
+!.env.example

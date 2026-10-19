@@ -1,5 +1,5 @@
-from router import QueryRouter
-from rewriter import QueryRewriter
+from app.query.router import QueryRouter
+from app.query.rewriter import QueryRewriter
 
 
 class QueryPipeline:

@@ -1,4 +1,4 @@
-from rrf import RRFFusion
+from app.retrieval.rrf import RRFFusion
 
 
 class HybridRetriever:
