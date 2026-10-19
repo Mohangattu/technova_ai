@@ -1,0 +1,6 @@
+-r requirements.txt
+chromadb>=1,<2
+sentence-transformers>=4,<6
+langgraph>=0.3,<2
+groq>=0.20,<1
+python-dotenv>=1,<2

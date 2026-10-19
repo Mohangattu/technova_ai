@@ -1,6 +1,6 @@
 from typing import List
 
-from model import (
+from app.ingestion.model import (
     TechNovaDocument,
     ParentChunk,
     ChildChunk,

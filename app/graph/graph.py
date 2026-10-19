@@ -1,40 +1,10 @@
-from pathlib import Path
-import sys
-import os
 import time
 from datetime import datetime, timezone
 
-# Force UTF-8 output on Windows
-if sys.platform == "win32":
-    os.system("chcp 65001 > nul 2>&1")
-
-sys.stdout.reconfigure(
-    encoding="utf-8",
-    errors="replace",
-)
-
-sys.stderr.reconfigure(
-    encoding="utf-8",
-    errors="replace",
-)
-
-# PATH SETUP
-_APP_DIR = Path(__file__).parent.parent
-
-sys.path.insert(0, str(_APP_DIR))
-sys.path.insert(0, str(_APP_DIR / "graph"))
-sys.path.insert(0, str(_APP_DIR / "query"))
-sys.path.insert(0, str(_APP_DIR / "retrieval"))
-sys.path.insert(0, str(_APP_DIR / "generation"))
-sys.path.insert(0, str(_APP_DIR / "evaluation"))
-sys.path.insert(0, str(_APP_DIR / "services"))
-sys.path.insert(0, str(_APP_DIR / "ingestion"))
-
-
 from langgraph.graph import StateGraph, START, END
-from state import RAGState
-from nodes import RAGNodes
-from trace_logger import TraceLogger
+from app.graph.state import RAGState
+from app.graph.nodes import RAGNodes
+from app.services.trace_logger import TraceLogger
 
 class RAGGraph:
 

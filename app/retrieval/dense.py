@@ -1,8 +1,8 @@
 import chromadb
 from sentence_transformers import SentenceTransformer
 
-from model import ChildChunk
-from access_control import AccessController
+from app.ingestion.model import ChildChunk
+from app.retrieval.access_control import AccessController
 
 
 class DenseRetriever:
